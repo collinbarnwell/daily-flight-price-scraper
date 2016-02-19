@@ -1,0 +1,1 @@
+00 12 * * * ruby ~/apps/flight-price/scrape-prices.rb

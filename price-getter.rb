@@ -23,14 +23,14 @@ class Pool
       "CHI-DTW/2016-03-24",
       "CHI-SLC/2016-03-24",
 
-      "ORD-TPA/2016-04-24",
+      "CHI-TPA/2016-04-24",
       "CHI-NYC/2016-04-24",
       "CHI-SFO/2016-04-24",
       "CHI-LAX/2016-04-24",
       "CHI-DTW/2016-04-24",
       "CHI-SLC/2016-04-24",
 
-      "ORD-TPA/2016-04-12",
+      "CHI-TPA/2016-04-12",
       "CHI-NYC/2016-04-12",
       "CHI-SFO/2016-04-12",
       "CHI-LAX/2016-04-12",
@@ -62,7 +62,7 @@ class PriceTracker
           print 'f'
         end
       end
-      open("output/#{pt.transform_flight_name(f)}.csv", 'w') do |f|
+      open("output/#{pt.transform_flight_name(f)}.csv", 'a') do |f|
         f.puts "#{date},#{price}"
       end
     end
@@ -88,7 +88,7 @@ class PriceTracker
 
   def write_price(f, sem, flights)
     if price = self.get_price_today(f)
-      open("output/#{transform_flight_name(f)}.csv", 'w') do |f|
+      open("output/#{transform_flight_name(f)}.csv", 'a') do |f|
         f.puts "#{date},#{price}"
       end
     else
