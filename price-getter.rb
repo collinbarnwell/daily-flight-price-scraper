@@ -109,9 +109,8 @@ class PriceTracker
     end
 
     file_title = "#{transform_flight_name(flight)} #{date}.html"
-    open('html/' + file_title, "w"){ |f| f.puts @browser.html }
-
     begin
+      open('html/' + file_title, "w"){ |f| f.puts @browser.html }
       page = Nokogiri::HTML(open('html/' + file_title))
     rescue
       return nil
